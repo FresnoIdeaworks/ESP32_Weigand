@@ -32,8 +32,6 @@ extern "C" {
 // Change the credentials, so the ESP32 connects to the proper router
 #define WIFI_SSID "FresnoIdeaworks"
 #define WIFI_PASSWORD "8gp28juu#6bc"
-//#define WIFI_SSID "ATTTAqigs2"
-//#define WIFI_PASSWORD "%py=y%jb3e3c"
 
 // Change the MQTT_HOST variable to the Raspberry Pi IP address,
 // so it connects to your Mosquitto MQTT broker
