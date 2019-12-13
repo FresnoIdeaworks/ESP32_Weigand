@@ -1,0 +1,262 @@
+15:50:55.443 -> RFID Reader Started
+15:50:55.443 -> Connecting to Wi-Fi...
+15:50:55.547 -> [WiFi-event] event: 0
+15:50:55.547 -> [WiFi-event] event: 2
+15:50:55.682 -> [WiFi-event] event: 4
+15:50:56.494 -> [WiFi-event] event: 7
+15:50:56.494 -> WiFi connected
+15:50:56.494 -> IP address: 
+15:50:56.494 -> 10.0.0.202
+15:50:56.527 -> Connecting to MQTT...
+15:50:56.731 -> Connected to MQTT.
+15:50:56.731 -> Session present: 0
+15:50:56.731 -> Subscribing at QoS 0, packetId: 1
+15:50:56.731 -> Subscribing at QoS 0, packetId: 2
+15:50:56.833 -> Subscribe acknowledged.
+15:50:56.833 ->   packetId: 1
+15:50:56.833 ->   qos: 0
+15:50:56.901 -> Subscribe acknowledged.
+15:50:56.901 ->   packetId: 2
+15:50:56.901 ->   qos: 0
+15:51:00.831 -> 1It's OPEN.
+15:51:00.831 -> Shop is OPEN.
+16:07:57.272 -> Received rfid: {"RFID":"14167","ShopAccessID":1,"Other":"Other"}
+16:07:57.409 -> 1It's OPEN.
+16:07:57.989 -> Received server reply for topic: ideaworks/fresno/frontdoor/reply
+16:07:57.989 -> Message: OPEN
+16:08:03.007 -> E (1027737) task_wdt: Task watchdog got triggered. The following tasks did not reset the watchdog in time:
+16:08:03.007 -> E (1027737) task_wdt:  - async_tcp (CPU 1)
+16:08:03.007 -> E (1027737) task_wdt: Tasks currently running:
+16:08:03.007 -> E (1027737) task_wdt: CPU 0: IDLE0
+16:08:03.007 -> E (1027737) task_wdt: CPU 1: loopTask
+16:08:03.007 -> E (1027737) task_wdt: Aborting.
+16:08:03.007 -> abort() was called at PC 0x400de777 on core 0
+16:08:03.007 -> 
+16:08:03.007 -> Backtrace: 0x4008c4b4:0x3ffbe170 0x4008c6e5:0x3ffbe190 0x400de777:0x3ffbe1b0 0x40084795:0x3ffbe1d0 0x40162baf:0x3ffbc490 0x400dfb2e:0x3ffbc4b0 0x4008a385:0x3ffbc4d0 0x40088ba1:0x3ffbc4f0
+16:08:03.041 -> 
+16:08:03.041 -> Rebooting...
+16:08:03.041 -> ets Jun  8 2016 00:22:57
+16:08:03.041 -> 
+16:08:03.041 -> rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+16:08:03.041 -> configsip: 0, SPIWP:0xee
+16:08:03.041 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+16:08:03.041 -> mode:DIO, clock div:1
+16:08:03.074 -> load:0x3fff0018,len:4
+16:08:03.074 -> load:0x3fff001c,len:1044
+16:08:03.074 -> load:0x40078000,len:8896
+16:08:03.074 -> load:0x40080400,len:5816
+16:08:03.074 -> entry 0x400806ac
+16:08:03.413 -> RFID Reader Started
+16:08:03.413 -> Connecting to Wi-Fi...
+16:08:03.481 -> [WiFi-event] event: 0
+16:08:03.481 -> [WiFi-event] event: 2
+16:08:03.651 -> [WiFi-event] event: 4
+16:08:03.719 -> [WiFi-event] event: 7
+16:08:03.719 -> WiFi connected
+16:08:03.719 -> IP address: 
+16:08:03.719 -> 10.0.0.202
+16:08:03.719 -> Connecting to MQTT...
+16:08:03.963 -> Connected to MQTT.
+16:08:03.963 -> Session present: 0
+16:08:03.963 -> Subscribing at QoS 0, packetId: 1
+16:08:03.963 -> Subscribing at QoS 0, packetId: 2
+16:08:04.032 -> Subscribe acknowledged.
+16:08:04.032 ->   packetId: 1
+16:08:04.032 ->   qos: 0
+16:08:04.102 -> Subscribe acknowledged.
+16:08:04.102 ->   packetId: 2
+16:08:04.102 ->   qos: 0
+16:08:08.744 -> 1It's OPEN.
+16:08:08.744 -> Shop is OPEN.
+16:48:16.025 -> Received rfid: {"RFID":"14160","ShopAccessID":1,"Other":"Other"}
+16:48:16.234 -> 1It's OPEN.
+16:48:16.545 -> Received server reply for topic: ideaworks/fresno/frontdoor/reply
+16:48:16.545 -> Message: OPEN
+16:48:21.524 -> E (2418298) task_wdt: Task watchdog got triggered. The following tasks did not reset the watchdog in time:
+16:48:21.524 -> E (2418298) task_wdt:  - async_tcp (CPU 1)
+16:48:21.558 -> E (2418298) task_wdt: Tasks currently running:
+16:48:21.558 -> E (2418298) task_wdt: CPU 0: IDLE0
+16:48:21.558 -> E (2418298) task_wdt: CPU 1: loopTask
+16:48:21.558 -> E (2418298) task_wdt: Aborting.
+16:48:21.558 -> abort() was called at PC 0x400de777 on core 0
+16:48:21.558 -> 
+16:48:21.558 -> Backtrace: 0x4008c4b4:0x3ffbe170 0x4008c6e5:0x3ffbe190 0x400de777:0x3ffbe1b0 0x40084795:0x3ffbe1d0 0x40162baf:0x3ffbc490 0x400dfb2e:0x3ffbc4b0 0x4008a385:0x3ffbc4d0 0x40088ba1:0x3ffbc4f0
+16:48:21.593 -> 
+16:48:21.593 -> Rebooting...
+16:48:21.593 -> ets Jun  8 2016 00:22:57
+16:48:21.593 -> 
+16:48:21.593 -> rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+16:48:21.593 -> configsip: 0, SPIWP:0xee
+16:48:21.593 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+16:48:21.593 -> mode:DIO, clock div:1
+16:48:21.593 -> load:0x3fff0018,len:4
+16:48:21.593 -> load:0x3fff001c,len:1044
+16:48:21.593 -> load:0x40078000,len:8896
+16:48:21.593 -> load:0x40080400,len:5816
+16:48:21.593 -> entry 0x400806ac
+16:48:21.940 -> RFID Reader Started
+16:48:21.940 -> Connecting to Wi-Fi...
+16:48:22.044 -> [WiFi-event] event: 0
+16:48:22.044 -> [WiFi-event] event: 2
+16:48:22.184 -> [WiFi-event] event: 4
+16:48:22.219 -> [WiFi-event] event: 7
+16:48:22.219 -> WiFi connected
+16:48:22.219 -> IP address: 
+16:48:22.219 -> 10.0.0.202
+16:48:22.219 -> Connecting to MQTT...
+16:48:22.463 -> Connected to MQTT.
+16:48:22.463 -> Session present: 0
+16:48:22.463 -> Subscribing at QoS 0, packetId: 1
+16:48:22.498 -> Subscribing at QoS 0, packetId: 2
+16:48:22.533 -> Subscribe acknowledged.
+16:48:22.533 ->   packetId: 1
+16:48:22.533 ->   qos: 0
+16:48:22.603 -> Subscribe acknowledged.
+16:48:22.603 ->   packetId: 2
+16:48:22.603 ->   qos: 0
+16:48:27.399 -> 1It's OPEN.
+16:48:27.399 -> Shop is OPEN.
+17:11:06.678 -> Received rfid: {"RFID":"59918","ShopAccessID":1,"Other":"Other"}
+17:11:06.922 -> 1It's OPEN.
+17:11:07.196 -> Received server reply for topic: ideaworks/fresno/frontdoor/reply
+17:11:07.196 -> Message: SHOPSITTER
+17:11:07.196 -> Sitter = 1
+17:11:12.206 -> Sitter = 0
+17:11:12.206 -> E (1370445) task_wdt: Task watchdog got triggered. The following tasks did not reset the watchdog in time:
+17:11:12.206 -> E (1370445) task_wdt:  - async_tcp (CPU 1)
+17:11:12.206 -> E (1370445) task_wdt: Tasks currently running:
+17:11:12.206 -> E (1370445) task_wdt: CPU 0: IDLE0
+17:11:12.241 -> E (1370445) task_wdt: CPU 1: loopTask
+17:11:12.241 -> E (1370445) task_wdt: Aborting.
+17:11:12.241 -> abort() was called at PC 0x400de777 on core 0
+17:11:12.241 -> 
+17:11:12.241 -> Backtrace: 0x4008c4b4:0x3ffbe170 0x4008c6e5:0x3ffbe190 0x400de777:0x3ffbe1b0 0x40084795:0x3ffbe1d0 0x40162baf:0x3ffbc490 0x400dfb2e:0x3ffbc4b0 0x4008a385:0x3ffbc4d0 0x40088ba1:0x3ffbc4f0
+17:11:12.241 -> 
+17:11:12.241 -> Rebooting...
+17:11:12.241 -> ets Jun  8 2016 00:22:57
+17:11:12.241 -> 
+17:11:12.241 -> rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+17:11:12.274 -> configsip: 0, SPIWP:0xee
+17:11:12.274 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+17:11:12.274 -> mode:DIO, clock div:1
+17:11:12.274 -> load:0x3fff0018,len:4
+17:11:12.274 -> load:0x3fff001c,len:1044
+17:11:12.274 -> load:0x40078000,len:8896
+17:11:12.274 -> load:0x40080400,len:5816
+17:11:12.274 -> entry 0x400806ac
+17:11:12.611 -> RFID Reader Started
+17:11:12.611 -> Connecting to Wi-Fi...
+17:11:12.749 -> [WiFi-event] event: 0
+17:11:12.749 -> [WiFi-event] event: 2
+17:11:12.921 -> [WiFi-event] event: 4
+17:11:13.712 -> [WiFi-event] event: 7
+17:11:13.712 -> WiFi connected
+17:11:13.712 -> IP address: 
+17:11:13.712 -> 10.0.0.202
+17:11:13.712 -> Connecting to MQTT...
+17:11:13.954 -> Connected to MQTT.
+17:11:13.954 -> Session present: 0
+17:11:13.954 -> Subscribing at QoS 0, packetId: 1
+17:11:13.988 -> Subscribing at QoS 0, packetId: 2
+17:11:14.055 -> Subscribe acknowledged.
+17:11:14.055 ->   packetId: 1
+17:11:14.055 ->   qos: 0
+17:11:14.158 -> Subscribe acknowledged.
+17:11:14.158 ->   packetId: 2
+17:11:14.158 ->   qos: 0
+17:11:18.047 -> 1It's OPEN.
+17:11:18.047 -> Shop is OPEN.
+17:18:57.941 -> Received rfid: {"RFID":"34660","ShopAccessID":1,"Other":"Other"}
+17:18:58.078 -> 1It's OPEN.
+17:18:58.454 -> Received server reply for topic: ideaworks/fresno/frontdoor/reply
+17:18:58.454 -> Message: SHOPSITTER
+17:18:58.454 -> Sitter = 1
+17:19:03.424 -> Sitter = 0
+17:19:03.458 -> abort() was called at PC 0x400de777 on core 0
+17:19:03.458 -> 
+17:19:03.458 -> Backtrace: 0x4008c4b4:0x3ffbe170 0x4008c6e5:0x3ffbe190 0x400de777:0x3ffbe1b0 0x40084795:0x3ffbe1d0 0x40162baf:0x3ffbc490 0x400dfb2e:0x3ffbc4b0 0x4008a385:0x3ffbc4d0 0x40088ba1:0x3ffbc4f0
+17:19:03.493 -> 
+17:19:03.493 -> Rebooting...
+17:19:03.493 -> ets Jun  8 2016 00:22:57
+17:19:03.493 -> 
+17:19:03.493 -> rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+17:19:03.493 -> configsip: 0, SPIWP:0xee
+17:19:03.493 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+17:19:03.493 -> mode:DIO, clock div:1
+17:19:03.493 -> load:0x3fff0018,len:4
+17:19:03.493 -> load:0x3fff001c,len:1044
+17:19:03.527 -> load:0x40078000,len:8896
+17:19:03.527 -> load:0x40080400,len:5816
+17:19:03.527 -> entry 0x400806ac
+17:19:03.833 -> RFID Reader Started
+17:19:03.868 -> Connecting to Wi-Fi...
+17:19:03.938 -> [WiFi-event] event: 0
+17:19:03.938 -> [WiFi-event] event: 2
+17:19:04.109 -> [WiFi-event] event: 4
+17:19:04.143 -> [WiFi-event] event: 7
+17:19:04.143 -> WiFi connected
+17:19:04.178 -> IP address: 
+17:19:04.178 -> 10.0.0.202
+17:19:04.178 -> Connecting to MQTT...
+17:19:04.583 -> Connected to MQTT.
+17:19:04.583 -> Session present: 0
+17:19:04.583 -> Subscribing at QoS 0, packetId: 1
+17:19:04.583 -> Subscribing at QoS 0, packetId: 2
+17:19:04.684 -> Subscribe acknowledged.
+17:19:04.684 ->   packetId: 1
+17:19:04.684 ->   qos: 0
+17:19:04.753 -> Subscribe acknowledged.
+17:19:04.753 ->   packetId: 2
+17:19:04.753 ->   qos: 0
+17:19:09.088 -> 1It's OPEN.
+17:19:09.088 -> Shop is OPEN.
+17:54:26.674 -> Received rfid: {"RFID":"52621","ShopAccessID":1,"Other":"Other"}
+17:54:26.948 -> 1It's OPEN.
+17:54:26.948 -> Received server reply for topic: ideaworks/fresno/frontdoor/reply
+17:54:26.948 -> Message: SHOPSITTER
+17:54:26.948 -> Sitter = 1
+17:54:31.939 -> Sitter = 0
+17:54:31.939 -> E (2128278) task_wdt: Task watchdog got triggered. The following tasks did not reset the watchdog in time:
+17:54:31.973 -> E (2128278) task_wdt:  - async_tcp (CPU 1)
+17:54:31.973 -> E (2128278) task_wdt: Tasks currently running:
+17:54:31.973 -> E (2128278) task_wdt: CPU 0: IDLE0
+17:54:31.973 -> E (2128278) task_wdt: CPU 1: loopTask
+17:54:31.973 -> E (2128278) task_wdt: Aborting.
+17:54:31.973 -> abort() was called at PC 0x400de777 on core 0
+17:54:31.973 -> 
+17:54:31.973 -> Backtrace: 0x4008c4b4:0x3ffbe170 0x4008c6e5:0x3ffbe190 0x400de777:0x3ffbe1b0 0x40084795:0x3ffbe1d0 0x40162baf:0x3ffbc490 0x400dfb2e:0x3ffbc4b0 0x4008a385:0x3ffbc4d0 0x40088ba1:0x3ffbc4f0
+17:54:32.007 -> 
+17:54:32.007 -> Rebooting...
+17:54:32.007 -> ets Jun  8 2016 00:22:57
+17:54:32.007 -> 
+17:54:32.007 -> rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+17:54:32.007 -> configsip: 0, SPIWP:0xee
+17:54:32.007 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+17:54:32.007 -> mode:DIO, clock div:1
+17:54:32.007 -> load:0x3fff0018,len:4
+17:54:32.007 -> load:0x3fff001c,len:1044
+17:54:32.041 -> load:0x40078000,len:8896
+17:54:32.041 -> load:0x40080400,len:5816
+17:54:32.041 -> entry 0x400806ac
+17:54:32.347 -> RFID Reader Started
+17:54:32.382 -> Connecting to Wi-Fi...
+17:54:32.452 -> [WiFi-event] event: 0
+17:54:32.452 -> [WiFi-event] event: 2
+17:54:32.623 -> [WiFi-event] event: 4
+17:54:33.384 -> [WiFi-event] event: 7
+17:54:33.384 -> WiFi connected
+17:54:33.384 -> IP address: 
+17:54:33.384 -> 10.0.0.202
+17:54:33.384 -> Connecting to MQTT...
+17:54:33.624 -> Connected to MQTT.
+17:54:33.624 -> Session present: 0
+17:54:33.624 -> Subscribing at QoS 0, packetId: 1
+17:54:33.658 -> Subscribing at QoS 0, packetId: 2
+17:54:33.691 -> Subscribe acknowledged.
+17:54:33.691 ->   packetId: 1
+17:54:33.691 ->   qos: 0
+17:54:33.725 -> Subscribe acknowledged.
+17:54:33.759 ->   packetId: 2
+17:54:33.759 ->   qos: 0
+17:54:37.618 -> 1It's OPEN.
+17:54:37.618 -> Shop is OPEN.
