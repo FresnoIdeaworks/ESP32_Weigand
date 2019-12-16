@@ -9,6 +9,7 @@
 //
 //  - 12 November 2019 :  Adding code to query shop status to set pin high or low for LED to display.
 //  - 12 December 2019 :  Shop status using RGB LED with red on GPIO 25 and green on GPIO 2
+//  - 14 December 2019 :  Modification to try non-blocking delays.
 //
 //    Multiple libraries were found for "WiFi.h"
 //      Used : C : \Users\Dan\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.3\libraries\WiFi
@@ -22,20 +23,8 @@
 // https ://legacysecuritygroup.com / projects / recent / 9 - rfid / 21 - arduino - hid - reader#
 //
 //
-/*
-  TIMERG0.wdt_wprotect=TIMG_WDT_WKEY_VALUE;
-  TIMERG0.wdt_feed=1;
-  TIMERG0.wdt_wprotect=0;
-
-  And add this header
-
-  #include "soc/timer_group_struct.h"
-  #include "soc/timer_group_reg.h"
-  #include "soc/soc.h"
-  #include "soc/rtc_cntl_reg.h"
-  /
- * */
 #include <WiFi.h>
+
 extern "C" {
 #include "freertos/FreeRTOS.h"
 #include "freertos/timers.h"
@@ -62,6 +51,7 @@ extern "C" {
 AsyncMqttClient mqttClient;
 TimerHandle_t mqttReconnectTimer;
 TimerHandle_t wifiReconnectTimer;
+TimerHandle_t doorStopTimer;
 
 //  Create objects to handle JSON elements for MQTT messages
 const int capacity = JSON_OBJECT_SIZE(4);
@@ -85,6 +75,9 @@ volatile unsigned long bitHolder2 = 0;
 volatile unsigned long cardChunk1 = 0;
 volatile unsigned long cardChunk2 = 0;
 
+#include <avdweb_VirtualDelay.h>
+static VirtualDelay doorDelay, delay2;
+
 uint8_t pinD0 = 36;
 uint8_t pinIntD0 = 36;
 uint8_t pinD1 = 39;
@@ -106,55 +99,49 @@ char cardID[10] = "";
 ////////////////////////////////////////////////////// /
 //  Door response Routines
 ////////////////////////////////////////////////////// /
+void buzzDoor() {
+  xTimerReset(doorStopTimer, 0);
+  Serial.println("Starting Door Timer");
+}
+
+
 void doorOpen() {
+  Serial.println("Setting Relay High");
   digitalWrite(doorRelay, HIGH);
-  delay(5000);
-  digitalWrite(doorRelay, LOW);
+  buzzDoor();
+  //  digitalWrite(doorRelay, LOW);
 }
 
 void doorNoOpen() {
-  //  for (int i = 0; i <= 10; i++) {
-  //    digitalWrite(redLED, LOW);
-  //    delay(100);
-  //    digitalWrite(redLED, HIGH);
-  delay(1000);
-  //  }
 }
 
 
 void sitterOpen() {
   // Have to allow sitter ~5 seconds to push keypad, then open door anyway
   Serial.print("Sitter = "); Serial.println(sitter);
-  digitalWrite(doorRelay, HIGH);
-  delay(5000);
-  digitalWrite(doorRelay, LOW);
+  doorOpen();
   sitter = false;
   Serial.print("Sitter = "); Serial.println(sitter);
   //  doorOpen();
 }
 
 void checkShopStatus() {
-  TickType_t xLastWakeTime;
-  const TickType_t xFrequency = pdMS_TO_TICKS( 1000 );
-  // Initialise the xLastWakeTime variable with the current time.
-  xLastWakeTime = xTaskGetTickCount();
   if ((WiFi.status() == WL_CONNECTED)) { //Check the current connection status
-//    vTaskDelayUntil( &xLastWakeTime, xFrequency );
     HTTPClient http;
-//    http.begin("http://192.168.1.125/status2.php"); //Specify the URL
+    //    http.begin("http://192.168.1.125/status2.php"); //Specify the URL
     http.begin("http://23.122.245.212/status2.php"); //Specify the URL
     vTaskDelay(10); //maybe this will help with the resets?
     int httpCode = http.GET();                                        //Make the request
     if (httpCode > 0) { //Check for the returning code
       String payload = http.getString();
       if (String(payload) == String("OPEN")) {
-        OPEN = true; Serial.print(OPEN);
+        OPEN = true;
         Serial.println("It's OPEN.");
         digitalWrite(greenLED, HIGH);
         digitalWrite(redLED, LOW);
       }
       else {
-        OPEN = false; Serial.print(OPEN);
+        OPEN = false;
         Serial.println("It's CLOSED.");
         digitalWrite(greenLED, LOW);
         digitalWrite(redLED, HIGH);
@@ -164,7 +151,6 @@ void checkShopStatus() {
       Serial.println("Error on HTTP request");
     }
     http.end(); //Free the resources
- //   vTaskDelete(NULL);
   }
 }
 
@@ -226,6 +212,14 @@ void connectToMqtt() {
   Serial.println("Connecting to MQTT...");
   mqttClient.connect();
 }
+
+void doorBuzzOff() {
+  Serial.println("Setting Relay Low");
+  digitalWrite(doorRelay, LOW);
+  Serial.println("Stopping Door Timer");
+  xTimerStop(doorStopTimer,0);
+}
+
 
 void WiFiEvent(WiFiEvent_t event) {
   Serial.printf("[WiFi-event] event: %d\n", event);
@@ -333,8 +327,8 @@ void onMqttMessage(char* topic, char* payload, AsyncMqttClientMessageProperties 
     else if ((messageTemp == "OPENING") or (messageTemp == "CLOSING")) {
       //Do nothing.  Really just a placeholder to force checkShopStatus() to run.
     }
+    checkShopStatus();
   }
-  checkShopStatus();
 }
 
 
@@ -382,10 +376,6 @@ void SendRequestMQTT(int rfid) {
 // SETUP function
 void setup()
 {
-  disableCore0WDT();
-  disableCore1WDT();
-  //disableLoopWDT();
-  //WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0); //disable brownout detector on ESP32 (potentially dangerous?)
   pinMode(redLED, OUTPUT);    // Red leg of RGB_LED
   pinMode(greenLED, OUTPUT);  // Green leg of RGB_LED
   pinMode(doorRelay, OUTPUT); // Relay connection
@@ -400,6 +390,8 @@ void setup()
   mqttReconnectTimer = xTimerCreate("mqttTimer", pdMS_TO_TICKS(2000), pdFALSE, (void*)0, reinterpret_cast<TimerCallbackFunction_t>(connectToMqtt));
   wifiReconnectTimer = xTimerCreate("wifiTimer", pdMS_TO_TICKS(2000), pdFALSE, (void*)0, reinterpret_cast<TimerCallbackFunction_t>(connectToWifi));
 
+  doorStopTimer = xTimerCreate("doorTimer", pdMS_TO_TICKS(5000), pdFALSE, (void*)0, reinterpret_cast<TimerCallbackFunction_t>(doorBuzzOff));
+ 
   WiFi.onEvent(WiFiEvent);
   mqttClient.onConnect(onMqttConnect);
   mqttClient.onDisconnect(onMqttDisconnect);

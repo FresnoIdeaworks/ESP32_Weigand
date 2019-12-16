@@ -1,0 +1,42 @@
+22:58:17.720 -> RFID Reader Started
+22:58:17.720 -> Connecting to Wi-Fi...
+22:58:17.788 -> [WiFi-event] event: 0
+22:58:17.788 -> [WiFi-event] event: 2
+22:58:17.990 -> [WiFi-event] event: 4
+22:58:18.059 -> [WiFi-event] event: 7
+22:58:18.059 -> WiFi connected
+22:58:18.059 -> IP address: 
+22:58:18.059 -> 10.0.0.202
+22:58:18.059 -> Connecting to MQTT...
+22:58:18.228 -> Connected to MQTT.
+22:58:18.228 -> Session present: 0
+22:58:18.228 -> Subscribing at QoS 0, packetId: 1
+22:58:18.228 -> Subscribing at QoS 0, packetId: 2
+22:58:18.331 -> Subscribe acknowledged.
+22:58:18.331 ->   packetId: 1
+22:58:18.331 ->   qos: 0
+22:58:18.365 -> Subscribe acknowledged.
+22:58:18.398 ->   packetId: 2
+22:58:18.398 ->   qos: 0
+22:58:23.045 -> It's OPEN.
+22:58:23.045 -> Shop is OPEN.
+22:58:27.332 -> Received rfid: {"RFID":"32925","ShopAccessID":1,"Other":"Other"}
+22:58:27.942 -> Received server reply for topic: ideaworks/fresno/frontdoor/reply
+22:58:27.942 -> Message: SHOPSITTER
+22:58:27.977 -> Sitter = 1
+22:58:27.977 -> Setting Relay High
+22:58:27.977 -> Starting Door Timer
+22:58:27.977 -> Sitter = 0
+22:58:28.082 -> It's OPEN.
+22:58:32.953 -> Setting Relay Low
+22:58:32.953 -> Stopping Door Timer
+22:58:56.011 -> Received rfid: {"RFID":"32925","ShopAccessID":1,"Other":"Other"}
+22:58:56.619 -> Received server reply for topic: ideaworks/fresno/frontdoor/reply
+22:58:56.619 -> Message: SHOPSITTER
+22:58:56.619 -> Sitter = 1
+22:58:56.619 -> Setting Relay High
+22:58:56.619 -> Starting Door Timer
+22:58:56.652 -> Sitter = 0
+22:58:56.822 -> It's OPEN.
+22:59:01.623 -> Setting Relay Low
+22:59:01.623 -> Stopping Door Timer
